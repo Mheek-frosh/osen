@@ -1,0 +1,12 @@
+
+> osen-luxe@1.0.0 dev
+> vite --host 0.0.0.0 --host 127.0.0.1 --port 5173
+
+
+  VITE v7.3.6  ready in 336 ms
+
+  ➜  Local:   http://127.0.0.1:5173/
+21:24:53 [vite] vite.config.js changed, restarting server...
+21:24:53 [vite] vite.config.js changed, restarting server...
+21:24:53 [vite] (client) Re-optimizing dependencies because lockfile has changed
+21:24:53 [vite] server restarted.
