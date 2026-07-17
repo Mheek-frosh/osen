@@ -2,3 +2,4 @@ export const SearchIcon=()=> <svg viewBox="0 0 24 24" aria-hidden="true"><circle
 export const BagIcon=()=> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 8h12l1 13H5L6 8Z"/><path d="M9 9V6a3 3 0 0 1 6 0v3"/></svg>;
 export const InstagramIcon=()=> <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="5"/><circle cx="12" cy="12" r="3.5"/><circle cx="17.2" cy="6.8" r=".7" fill="currentColor"/></svg>;
 export const MusicIcon=()=> <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 5v10.5a3.5 3.5 0 1 1-2-3.15V7l7-1.5v8a3.5 3.5 0 1 1-2-3.15V4.8L14 5Z"/></svg>;
+export const ArrowUpRight=()=> <svg className="button-arrow" viewBox="0 0 16 16" aria-hidden="true"><path d="M4 12 12 4M6 4h6v6"/></svg>;
