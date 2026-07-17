@@ -1,0 +1,28 @@
+# Dependencies
+node_modules/
+
+# Production output
+dist/
+.vercel/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Local tools and editor state
+.chrome-test/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Logs and local diagnostics
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+edge-*.txt
+mobile-*.txt
+mobile-*.png
+react-*.png
+
