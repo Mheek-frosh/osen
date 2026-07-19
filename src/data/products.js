@@ -2,10 +2,10 @@ export const categories = [
   {id:'ankara',label:'Africa Fabrics (Ankara)',shortLabel:'Ankara',image:'image-ank1',title:'Africa Fabrics',copy:'Expressive Ankara pieces grounded in colour, story, and everyday elegance.'},
   {id:'laces',label:'Laces',image:'image-lace',title:'Laces',copy:'Refined lace and occasion materials selected for memorable celebrations.'},
   {id:'men-materials',label:'Men materials',image:'image-menwears',title:'Men Materials',copy:'Distinguished materials for traditional and contemporary menswear.'},
-  {id:'shoes',label:'Shoes',image:'sheet-shoes',title:'Shoes',copy:'Considered heels and statement footwear for a confident arrival.'},
+  {id:'shoes',label:'Shoes',image:'image-shoe',title:'Shoes',copy:'Considered heels and statement footwear for a confident arrival.'},
   {id:'slippers',label:'Slippers',image:'sheet-shoes',title:'Slippers',copy:'Polished comfort with distinctive Nigerian textile details.'},
   {id:'handbags',label:'Handbags',image:'image-bag',title:'Handbags',copy:'Structured leather and textile bags designed to complete the look.'},
-  {id:'jewellery',label:'Jewellery',image:'sheet-clutch',title:'Jewellery',copy:'Finishing pieces with warm metallic details and sculptural character.'}
+  {id:'jewellery',label:'Jewellery',image:'image-neck',title:'Jewellery',copy:'Finishing pieces with warm metallic details and sculptural character.'}
 ];
 
 export const products = [
@@ -14,11 +14,11 @@ export const products = [
   {id:'adun-dress',name:'Adùn Sculpted Lace',category:'laces',label:'Laces',price:285000,material:'Structured lace jacquard',image:'image-lace',badge:'Signature',description:'A precise, corset-inspired occasion silhouette shaped in rich burgundy and antique-gold lace.'},
   {id:'temi-dress',name:'Témi Celebration Lace',category:'laces',label:'Laces',price:320000,material:'Hand-finished ceremonial lace',image:'image-lace',badge:'Exclusive',description:'An elongated celebration silhouette with a softly sculpted shoulder and hand-finished waist detail.'},
   {id:'noble-men-material',name:'Noble Brocade Material',category:'men-materials',label:'Men materials',price:75000,material:'Premium woven brocade',image:'image-menwears',badge:'New',description:'A distinguished woven material selected for refined kaftans and contemporary traditional tailoring.'},
-  {id:'zuri-mule',name:'Zuri Heeled Shoe',category:'shoes',label:'Shoes',price:135000,material:'Leather & woven textile',image:'sheet-shoes',badge:'Limited',description:'An elegant open-toe heel with a woven Ankara inset and balanced architectural shape.'},
+  {id:'zuri-mule',name:'Zuri Heeled Shoe',category:'shoes',label:'Shoes',price:135000,material:'Leather & woven textile',image:'image-shoe',badge:'Limited',description:'An elegant open-toe heel with a woven Ankara inset and balanced architectural shape.'},
   {id:'kemi-slipper',name:'Kémi Woven Slipper',category:'slippers',label:'Slippers',price:82000,material:'Nappa leather & jacquard',image:'sheet-shoes',badge:'New',description:'An easy statement slipper balancing soft nappa leather with an Osen woven textile panel.'},
   {id:'iye-bag',name:'Iye Top Handle',category:'handbags',label:'Handbags',price:195000,material:'Oxblood pebbled leather',image:'image-bag',badge:'Signature',description:'A poised top-handle bag finished with a sculptural brushed-gold clasp and considered interior.'},
   {id:'naya-mini',name:'Naya Mini Handbag',category:'handbags',label:'Handbags',price:175000,material:'Burgundy calf leather',image:'image-bag',badge:'',description:'Our signature handbag scaled down for evenings, with a polished top handle and suede-lined interior.'},
-  {id:'ile-jewel',name:'Ilé Statement Jewel',category:'jewellery',label:'Jewellery',price:68000,material:'Woven textile & gold finish',image:'sheet-clutch',badge:'Limited',description:'A jewel-like finishing piece crafted for celebrations with warm gold detailing.'}
+  {id:'ile-jewel',name:'Ilé Statement Jewel',category:'jewellery',label:'Jewellery',price:68000,material:'Woven textile & gold finish',image:'image-neck',badge:'Limited',description:'A jewel-like finishing piece crafted for celebrations with warm gold detailing.'}
 ];
 
 export const formatNaira = value => `₦${value.toLocaleString('en-NG')}`;
