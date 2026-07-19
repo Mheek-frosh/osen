@@ -19,7 +19,7 @@ export default function Header(){
       <div className="main-nav">
         <button className="mobile-menu-button" onClick={()=>setMenuOpen(true)} aria-label="Open menu"><i></i><i></i></button>
         <nav className="primary-links"><NavLink to="/shop">Shop</NavLink><NavLink to="/collections">Collections</NavLink></nav>
-        <Link className="wordmark" to="/"><strong>OSEN LUXE</strong></Link>
+        <Link className="wordmark" to="/"><strong>OSEN' LUXE</strong></Link>
         <div className="mobile-nav-tools">
           <button onClick={()=>setSearchOpen(value=>!value)} aria-label="Search"><SearchIcon/></button>
           <button onClick={()=>{setSearchOpen(false);setCartOpen(true)}} aria-label={`Cart with ${count} items`}><BagIcon/><span>{count}</span></button>

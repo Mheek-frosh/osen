@@ -1,6 +1,6 @@
-# Osen Luxe
+# Osen' Luxe
 
-React and Vite storefront for Osen Luxe — Elegant · Heritage · Luxury.
+React and Vite storefront for Osen' Luxe — Elegant · Heritage · Luxury.
 
 ## Local development
 

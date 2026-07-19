@@ -16,7 +16,7 @@ function getReply(message){
 export default function ChatbotWidget(){
   const [open,setOpen]=useState(false);
   const [input,setInput]=useState('');
-  const [messages,setMessages]=useState([{id:1,from:'bot',text:'Welcome to Osen Luxe. How may I assist you today?'}]);
+  const [messages,setMessages]=useState([{id:1,from:'bot',text:"Welcome to Osen' Luxe. How may I assist you today?"}]);
   const endRef=useRef(null);
 
   useEffect(()=>{if(open)endRef.current?.scrollIntoView({behavior:'smooth'})},[messages,open]);
@@ -30,7 +30,7 @@ export default function ChatbotWidget(){
   };
 
   return <div className={`chatbot ${open?'is-open':''}`}>
-    <section className="chat-panel" aria-hidden={!open} aria-label="Osen Luxe assistant">
+    <section className="chat-panel" aria-hidden={!open} aria-label="Osen' Luxe assistant">
       <header className="chat-head"><div><span>OL</span><p><strong>Osen Concierge</strong><small>Typically replies instantly</small></p></div><button onClick={()=>setOpen(false)} aria-label="Close chat">×</button></header>
       <div className="chat-messages">
         {messages.map(message=><div key={message.id} className={`chat-message ${message.from}`}>{message.text}</div>)}
