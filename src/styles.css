@@ -25,4 +25,35 @@
 /* New campaign and expanded catalog */
 .hero-new{background:#f5f4f2}.hero-new:after{background:linear-gradient(90deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.68) 27%,rgba(255,255,255,.05) 55%)}.hero-new .hero-copy,.hero-new .hero-index{color:#111}.hero-new>img{object-position:center center}.sheet.image-ank1{background-image:url('/assets/ank1.png');background-size:cover!important;background-position:center 16%!important;background-color:#f5f5f5}.sheet.image-ank2{background-image:url('/assets/ank2.png');background-size:cover!important;background-position:center 14%!important;background-color:#f5f5f5}.category-grid-seven{grid-template-columns:repeat(4,minmax(0,1fr))}.category-grid-seven .category-card:first-child{grid-column:span 2}.category-grid-seven .category-card:first-child>div{aspect-ratio:1.55/1}.category-grid-seven .category-card>span{grid-template-columns:auto minmax(0,1fr) auto}.category-grid-seven .category-card strong{font-size:clamp(15px,1.45vw,22px)}
 @media(max-width:900px){.hero-new>img{object-position:62% center}.hero-new:after{background:linear-gradient(90deg,rgba(255,255,255,.82),rgba(255,255,255,.12) 90%)}.category-grid-seven{grid-template-columns:repeat(2,minmax(0,1fr))}.category-grid-seven .category-card:first-child{grid-column:1/-1}}
-@media(max-width:560px){.hero-new>img{object-position:61% center}.hero-new:after{background:linear-gradient(0deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.55) 48%,rgba(255,255,255,.08) 80%)}.hero-new .hero-copy{bottom:40px}.category-grid-seven{grid-template-columns:1fr}.category-grid-seven .category-card:first-child{grid-column:auto}.category-grid-seven .category-card:first-child>div,.category-grid-seven .category-card>div{aspect-ratio:4/4.4}.category-grid-seven .category-card strong{font-size:20px}}
+@media(max-width:560px){
+  html,body,#root{max-width:100%;overflow-x:clip}
+  .page-hero h1,.cart-page>h1{max-width:100%;font-size:clamp(34px,10.5vw,46px);overflow-wrap:normal}
+  .page-hero>p:last-child{max-width:330px;margin-left:auto;margin-right:auto;font-size:16px;line-height:1.35}
+  .hero-new>img{object-position:61% center}
+  .hero-new:after{background:linear-gradient(0deg,rgba(255,255,255,.94) 0%,rgba(255,255,255,.55) 48%,rgba(255,255,255,.08) 80%)}
+  .hero-new .hero-copy{bottom:34px}
+  .hero-new h1{font-size:clamp(34px,10.8vw,42px);line-height:.98}
+  .hero-new .hero-sub{max-width:270px;margin:20px 0 24px}
+  .hero-new .btn{width:min(242px,100%);min-width:0;min-height:50px}
+
+  /* Keep the featured Ankara collection prominent, then use a compact
+     two-column touch-friendly grid for the remaining six categories. */
+  .category-grid-seven{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+  .category-grid-seven .category-card:first-child{grid-column:1/-1}
+  .category-grid-seven .category-card:first-child>div{aspect-ratio:16/10}
+  .category-grid-seven .category-card:not(:first-child)>div{aspect-ratio:1/1.12}
+  .category-grid-seven .category-card>span{padding:45px 10px 11px;grid-template-columns:auto minmax(0,1fr);gap:7px}
+  .category-grid-seven .category-card strong{font-size:clamp(12px,3.7vw,16px);line-height:1.05;overflow-wrap:anywhere}
+  .category-grid-seven .category-card em{display:none}
+  .category-grid-seven .category-card b{font-size:8px}
+
+  .shop-toolbar .filters{scrollbar-width:none;overscroll-behavior-inline:contain;scroll-snap-type:x proximity}
+  .shop-toolbar .filters::-webkit-scrollbar{display:none}
+  .shop-toolbar .filters button{scroll-snap-align:start;min-height:40px}
+}
+
+@media(max-width:350px){
+  .hero-new .hero-copy{left:16px;right:14px}
+  .category-grid-seven .category-card>span{padding-left:8px;padding-right:8px}
+  .category-grid-seven .category-card strong{font-size:12px}
+}
