@@ -1,12 +1,24 @@
+export const categories = [
+  {id:'ankara',label:'Africa Fabrics (Ankara)',shortLabel:'Ankara',image:'image-ank1',title:'Africa Fabrics',copy:'Expressive Ankara pieces grounded in colour, story, and everyday elegance.'},
+  {id:'laces',label:'Laces',image:'sheet-dress',title:'Laces',copy:'Refined lace and occasion materials selected for memorable celebrations.'},
+  {id:'men-materials',label:'Men materials',image:'sheet-dress',title:'Men Materials',copy:'Distinguished materials for traditional and contemporary menswear.'},
+  {id:'shoes',label:'Shoes',image:'sheet-shoes',title:'Shoes',copy:'Considered heels and statement footwear for a confident arrival.'},
+  {id:'slippers',label:'Slippers',image:'sheet-shoes',title:'Slippers',copy:'Polished comfort with distinctive Nigerian textile details.'},
+  {id:'handbags',label:'Handbags',image:'sheet-bag',title:'Handbags',copy:'Structured leather and textile bags designed to complete the look.'},
+  {id:'jewellery',label:'Jewellery',image:'sheet-clutch',title:'Jewellery',copy:'Finishing pieces with warm metallic details and sculptural character.'}
+];
+
 export const products = [
-  {id:'adun-dress',name:'Adùn Sculpted Dress',category:'wear',label:'Ready-to-wear',price:285000,material:'Structured Ankara jacquard',image:'sheet-dress',badge:'New',description:'A precise, corset-inspired occasion silhouette shaped in rich burgundy and antique-gold jacquard.'},
-  {id:'iye-bag',name:'Iye Top Handle',category:'bags',label:'Bags',price:195000,material:'Oxblood pebbled leather',image:'sheet-bag',badge:'Signature',description:'A poised top-handle bag finished with a sculptural brushed-gold clasp and considered interior.'},
-  {id:'zuri-mule',name:'Zuri Heeled Mule',category:'shoes',label:'Shoes',price:135000,material:'Leather & woven textile',image:'sheet-shoes',badge:'Limited',description:'An elegant open-toe mule with a woven Ankara inset and balanced architectural heel.'},
-  {id:'aso-clutch',name:'Aṣọ Evening Clutch',category:'bags',label:'Bags',price:148000,material:'Woven jacquard & brass',image:'sheet-clutch',badge:'',description:'A compact evening clutch framed in warm brass and wrapped in richly woven geometric textile.'},
-  {id:'temi-dress',name:'Témi Column Dress',category:'wear',label:'Ready-to-wear',price:320000,material:'Hand-finished wax print',image:'sheet-dress',badge:'Exclusive',description:'An elongated evening column with a softly sculpted shoulder and hand-finished waist detail.'},
-  {id:'naya-mini',name:'Naya Mini Handle',category:'bags',label:'Bags',price:175000,material:'Burgundy calf leather',image:'sheet-bag',badge:'',description:'Our signature bag scaled down for evenings, with a polished top handle and suede-lined interior.'},
-  {id:'kemi-mule',name:'Kémi Woven Mule',category:'shoes',label:'Shoes',price:142000,material:'Nappa leather & jacquard',image:'sheet-shoes',badge:'New',description:'A versatile heeled mule balancing soft nappa leather with an Osen woven textile panel.'},
-  {id:'ile-clutch',name:'Ilé Frame Clutch',category:'bags',label:'Bags',price:155000,material:'Woven textile & gold frame',image:'sheet-clutch',badge:'Limited',description:'A jewel-like frame clutch crafted for celebrations, with a removable fine-chain strap.'}
+  {id:'adara-ankara-gown',name:'Adára Ankara Gown',category:'ankara',label:'Africa Fabrics (Ankara)',price:98000,material:'Premium African wax cotton',image:'image-ank1',badge:'New',description:'A flowing Ankara gown in warm cocoa, coral, and amber tones with a richly finished neckline.'},
+  {id:'amethyst-ankara-gown',name:'Amethyst Ankara Gown',category:'ankara',label:'Africa Fabrics (Ankara)',price:92000,material:'Hand-finished Ankara cotton',image:'image-ank2',badge:'New',description:'A relaxed purple Ankara gown featuring geometric motifs and tactile patchwork accents.'},
+  {id:'adun-dress',name:'Adùn Sculpted Lace',category:'laces',label:'Laces',price:285000,material:'Structured lace jacquard',image:'sheet-dress',badge:'Signature',description:'A precise, corset-inspired occasion silhouette shaped in rich burgundy and antique-gold lace.'},
+  {id:'temi-dress',name:'Témi Celebration Lace',category:'laces',label:'Laces',price:320000,material:'Hand-finished ceremonial lace',image:'sheet-dress',badge:'Exclusive',description:'An elongated celebration silhouette with a softly sculpted shoulder and hand-finished waist detail.'},
+  {id:'noble-men-material',name:'Noble Brocade Material',category:'men-materials',label:'Men materials',price:75000,material:'Premium woven brocade',image:'sheet-dress',badge:'New',description:'A distinguished woven material selected for refined kaftans and contemporary traditional tailoring.'},
+  {id:'zuri-mule',name:'Zuri Heeled Shoe',category:'shoes',label:'Shoes',price:135000,material:'Leather & woven textile',image:'sheet-shoes',badge:'Limited',description:'An elegant open-toe heel with a woven Ankara inset and balanced architectural shape.'},
+  {id:'kemi-slipper',name:'Kémi Woven Slipper',category:'slippers',label:'Slippers',price:82000,material:'Nappa leather & jacquard',image:'sheet-shoes',badge:'New',description:'An easy statement slipper balancing soft nappa leather with an Osen woven textile panel.'},
+  {id:'iye-bag',name:'Iye Top Handle',category:'handbags',label:'Handbags',price:195000,material:'Oxblood pebbled leather',image:'sheet-bag',badge:'Signature',description:'A poised top-handle bag finished with a sculptural brushed-gold clasp and considered interior.'},
+  {id:'naya-mini',name:'Naya Mini Handbag',category:'handbags',label:'Handbags',price:175000,material:'Burgundy calf leather',image:'sheet-bag',badge:'',description:'Our signature handbag scaled down for evenings, with a polished top handle and suede-lined interior.'},
+  {id:'ile-jewel',name:'Ilé Statement Jewel',category:'jewellery',label:'Jewellery',price:68000,material:'Woven textile & gold finish',image:'sheet-clutch',badge:'Limited',description:'A jewel-like finishing piece crafted for celebrations with warm gold detailing.'}
 ];
 
 export const formatNaira = value => `₦${value.toLocaleString('en-NG')}`;
