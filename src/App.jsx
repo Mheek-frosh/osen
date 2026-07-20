@@ -9,9 +9,10 @@ import Cart from './pages/Cart';
 import Checkout from './pages/Checkout';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
+import ScrollManager from './components/ScrollManager';
 
 export default function App(){
-  return <Routes>
+  return <><ScrollManager/><Routes>
     <Route element={<Layout />}>
       <Route path="/" element={<Home />} />
       <Route path="/shop" element={<Shop />} />
@@ -23,5 +24,5 @@ export default function App(){
       <Route path="*" element={<NotFound />} />
     </Route>
     <Route path="/checkout" element={<Checkout />} />
-  </Routes>;
+  </Routes></>;
 }
