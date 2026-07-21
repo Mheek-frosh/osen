@@ -10,9 +10,10 @@ import Checkout from './pages/Checkout';
 import Contact from './pages/Contact';
 import NotFound from './pages/NotFound';
 import ScrollManager from './components/ScrollManager';
+import RevealMotion from './components/RevealMotion';
 
 export default function App(){
-  return <><ScrollManager/><Routes>
+  return <><ScrollManager/><RevealMotion/><Routes>
     <Route element={<Layout />}>
       <Route path="/" element={<Home />} />
       <Route path="/shop" element={<Shop />} />

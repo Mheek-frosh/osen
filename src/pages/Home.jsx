@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
-import { categories, products } from '../data/products';
+import { categories } from '../data/products';
 import ProductGrid from '../components/ProductGrid';
 import { ArrowUpRight } from '../components/Icons';
 import HeroCarousel from '../components/HeroCarousel';
+import { useCatalog } from '../context/CatalogContext';
 
 export default function Home(){
+  const {products}=useCatalog();
   return <>
     <HeroCarousel/>
     <div className="ticker"><div>ELEGANT&nbsp;&nbsp; ✦ &nbsp;&nbsp;HERITAGE&nbsp;&nbsp; ✦ &nbsp;&nbsp;LUXURY&nbsp;&nbsp; ✦ &nbsp;&nbsp;CRAFTED IN ABUJA&nbsp;&nbsp; ✦ &nbsp;&nbsp;ELEGANT&nbsp;&nbsp; ✦ &nbsp;&nbsp;HERITAGE&nbsp;&nbsp; ✦ &nbsp;&nbsp;LUXURY</div></div>
