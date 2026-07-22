@@ -1,12 +1,11 @@
 import { Link } from 'react-router-dom';
 import { formatNaira } from '../data/products';
 import { useCart } from '../context/CartContext';
-import { productImageStyle } from '../utils/productImage';
 
 export default function ProductCard({product}){
   const {addItem}=useCart();
   return <article className="product-card">
-    <div className={`product-image sheet ${product.image||''}`} style={productImageStyle(product)}>
+    <div className={`product-image sheet ${product.image}`}>
       {product.badge&&<span className="tag">{product.badge}</span>}
       <Link className="product-hit" to={`/product/${product.id}`} aria-label={`View ${product.name}`}/>
       <button className="quick-add" onClick={()=>addItem(product.id)}>Quick add</button>

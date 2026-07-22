@@ -1,10 +1,9 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SearchIcon } from './Icons';
-import { useCatalog } from '../context/CatalogContext';
+import { products } from '../data/products';
 
 export default function SearchStrip({open,query,setQuery,onClose}){
-  const {products}=useCatalog();
   const navigate=useNavigate();
   const inputRef=useRef(null);
   useEffect(()=>{if(open)inputRef.current?.focus()},[open]);
