@@ -5,12 +5,14 @@ import { useCart } from '../context/CartContext';
 import { formatNaira } from '../data/products';
 
 const ACCOUNT_NUMBER='6674700463';
+const WHATSAPP_NUMBER='2347054885172';
 
 export default function Checkout(){
   const {lines,subtotal,clearCart}=useCart();
   const [complete,setComplete]=useState(false);
   const [paymentOpen,setPaymentOpen]=useState(false);
   const [copied,setCopied]=useState(false);
+  const [checkoutDetails,setCheckoutDetails]=useState(null);
   const [orderReference]=useState(()=>`OL-${Date.now().toString().slice(-6)}`);
 
   useEffect(()=>{
@@ -26,6 +28,8 @@ export default function Checkout(){
 
   const submit=event=>{
     event.preventDefault();
+    const formData=new FormData(event.currentTarget);
+    setCheckoutDetails(Object.fromEntries(formData.entries()));
     setPaymentOpen(true);
   };
 
@@ -40,9 +44,34 @@ export default function Checkout(){
   };
 
   const confirmTransfer=()=>{
+    const productDetails=lines.map(({product,qty})=>
+      `• ${product.name} — Qty ${qty} — ${formatNaira(product.price*qty)}`
+    ).join('\n');
+    const deliveryDetails=checkoutDetails?
+      `${checkoutDetails.firstName} ${checkoutDetails.lastName}\n${checkoutDetails.address}, ${checkoutDetails.city}, ${checkoutDetails.state}\nPhone: ${checkoutDetails.phone}\nEmail: ${checkoutDetails.email}`:
+      'Customer details submitted through the website';
+    const message=[
+      `Hello Osen' Luxe, I have made payment for this order.`,
+      '',
+      `Order reference: ${orderReference}`,
+      '',
+      'Order details:',
+      productDetails,
+      '',
+      `Total paid: ${formatNaira(subtotal)}`,
+      'Bank: Moniepoint',
+      `Account number: ${ACCOUNT_NUMBER}`,
+      '',
+      'Customer / delivery details:',
+      deliveryDetails,
+      '',
+      'Please confirm my payment and order. I will attach my transfer receipt here.'
+    ].join('\n');
+    const whatsappUrl=`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
     setPaymentOpen(false);
     clearCart();
     setComplete(true);
+    window.location.href=whatsappUrl;
   };
 
   return <>
@@ -68,19 +97,19 @@ export default function Checkout(){
           <h1>Checkout</h1>
           <fieldset>
             <legend>Contact</legend>
-            <label>Email address<input type="email" required placeholder="you@example.com"/></label>
-            <label>Phone number<input type="tel" required placeholder="+234"/></label>
+            <label>Email address<input name="email" type="email" required placeholder="you@example.com"/></label>
+            <label>Phone number<input name="phone" type="tel" required placeholder="+234"/></label>
           </fieldset>
           <fieldset>
             <legend>Delivery address</legend>
             <div className="form-split">
-              <label>First name<input required/></label>
-              <label>Last name<input required/></label>
+              <label>First name<input name="firstName" required/></label>
+              <label>Last name<input name="lastName" required/></label>
             </div>
-            <label>Address<input required placeholder="Street and house number"/></label>
+            <label>Address<input name="address" required placeholder="Street and house number"/></label>
             <div className="form-split">
-              <label>City<input required defaultValue="Abuja"/></label>
-              <label>State<select required defaultValue="Abuja FCT"><option>Abuja FCT</option><option>Rivers</option><option>Oyo</option><option>Kano</option></select></label>
+              <label>City<input name="city" required defaultValue="Abuja"/></label>
+              <label>State<select name="state" required defaultValue="Abuja FCT"><option>Abuja FCT</option><option>Rivers</option><option>Oyo</option><option>Kano</option></select></label>
             </div>
           </fieldset>
           <fieldset>
@@ -108,7 +137,8 @@ export default function Checkout(){
         <h2 id="transfer-title">Please make your transfer</h2>
         <p className="transfer-intro">Use the details below to complete your order. Your items will be processed after the transfer is verified.</p>
         <div className="transfer-details">
-          <div><span>Account number</span><strong>{ACCOUNT_NUMBER}</strong></div>
+          <div><span>Bank name</span><strong>Moniepoint</strong></div>
+          <div className="account-number-row"><span>Account number</span><strong>{ACCOUNT_NUMBER}</strong></div>
           <button type="button" className="copy-account" onClick={copyAccount}>{copied?'Copied ✓':'Copy number'}</button>
           <div><span>Account name</span><strong>Osen' Luxe</strong></div>
           <div><span>Amount to transfer</span><strong>{formatNaira(subtotal)}</strong></div>
