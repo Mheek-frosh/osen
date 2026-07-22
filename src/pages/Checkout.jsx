@@ -1,6 +1,126 @@
+import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { ArrowUpRight } from '../components/Icons';
 import { useCart } from '../context/CartContext';
 import { formatNaira } from '../data/products';
-import { ArrowUpRight } from '../components/Icons';
-export default function Checkout(){const {lines,subtotal,clearCart}=useCart();const [complete,setComplete]=useState(false);const submit=e=>{e.preventDefault();clearCart();setComplete(true)};return <><header className="checkout-nav"><Link to="/cart">← Back to bag</Link><Link className="wordmark" to="/">OSEN' LUXE</Link><span>Secure checkout</span></header><main className="checkout-page section-pad">{complete?<div className="order-success"><span>✓</span><p className="eyebrow">Order received · OL-{Date.now().toString().slice(-6)}</p><h1>Thank you.</h1><p>Your Osen' Luxe order is confirmed. A confirmation has been prepared for your email address.</p><Link className="btn btn-dark" to="/">Return home <ArrowUpRight/></Link></div>:!lines.length?<div className="empty-cart"><h2>Your bag is empty.</h2><Link className="btn btn-dark" to="/shop">Shop the collection <ArrowUpRight/></Link></div>:<div className="checkout-grid"><form className="checkout-form" onSubmit={submit}><p className="eyebrow">Complete your order</p><h1>Checkout</h1><fieldset><legend>Contact</legend><label>Email address<input type="email" required placeholder="you@example.com"/></label><label>Phone number<input type="tel" required placeholder="+234"/></label></fieldset><fieldset><legend>Delivery address</legend><div className="form-split"><label>First name<input required/></label><label>Last name<input required/></label></div><label>Address<input required placeholder="Street and house number"/></label><div className="form-split"><label>City<input required defaultValue="Abuja"/></label><label>State<select required defaultValue="Abuja FCT"><option>Abuja FCT</option><option>Rivers</option><option>Oyo</option><option>Kano</option></select></label></div></fieldset><fieldset><legend>Payment</legend><div className="payment-note"><strong>Card / bank transfer</strong><span>Secure payment details will be collected by your connected payment provider.</span></div></fieldset><button className="btn btn-dark">Place order <ArrowUpRight/></button></form><aside className="checkout-items">{lines.map(({product,qty})=><div className="checkout-item" key={product.id}><div className={`checkout-thumb sheet ${product.image}`}></div><p><strong>{product.name}</strong><span>Qty {qty}</span></p><b>{formatNaira(product.price*qty)}</b></div>)}<div className="checkout-total"><span>Total</span><strong>{formatNaira(subtotal)}</strong></div></aside></div>}</main></>}
+
+const ACCOUNT_NUMBER='6674700463';
+
+export default function Checkout(){
+  const {lines,subtotal,clearCart}=useCart();
+  const [complete,setComplete]=useState(false);
+  const [paymentOpen,setPaymentOpen]=useState(false);
+  const [copied,setCopied]=useState(false);
+  const [orderReference]=useState(()=>`OL-${Date.now().toString().slice(-6)}`);
+
+  useEffect(()=>{
+    if(!paymentOpen)return undefined;
+    const closeOnEscape=event=>{if(event.key==='Escape')setPaymentOpen(false)};
+    document.addEventListener('keydown',closeOnEscape);
+    document.body.style.overflow='hidden';
+    return()=>{
+      document.removeEventListener('keydown',closeOnEscape);
+      document.body.style.overflow='';
+    };
+  },[paymentOpen]);
+
+  const submit=event=>{
+    event.preventDefault();
+    setPaymentOpen(true);
+  };
+
+  const copyAccount=async()=>{
+    try{
+      await navigator.clipboard.writeText(ACCOUNT_NUMBER);
+      setCopied(true);
+      window.setTimeout(()=>setCopied(false),1800);
+    }catch{
+      setCopied(false);
+    }
+  };
+
+  const confirmTransfer=()=>{
+    setPaymentOpen(false);
+    clearCart();
+    setComplete(true);
+  };
+
+  return <>
+    <header className="checkout-nav">
+      <Link to="/cart">← Back to bag</Link>
+      <Link className="wordmark" to="/">OSEN' LUXE</Link>
+      <span>Secure checkout</span>
+    </header>
+
+    <main className="checkout-page section-pad">
+      {complete?<div className="order-success">
+        <span>✓</span>
+        <p className="eyebrow">Payment submitted · {orderReference}</p>
+        <h1>Thank you.</h1>
+        <p>Your order has been received and is awaiting transfer verification. Please keep your payment receipt until your order is confirmed.</p>
+        <Link className="btn btn-dark" to="/">Return home <ArrowUpRight/></Link>
+      </div>:!lines.length?<div className="empty-cart">
+        <h2>Your bag is empty.</h2>
+        <Link className="btn btn-dark" to="/shop">Shop the collection <ArrowUpRight/></Link>
+      </div>:<div className="checkout-grid">
+        <form className="checkout-form" onSubmit={submit}>
+          <p className="eyebrow">Complete your order</p>
+          <h1>Checkout</h1>
+          <fieldset>
+            <legend>Contact</legend>
+            <label>Email address<input type="email" required placeholder="you@example.com"/></label>
+            <label>Phone number<input type="tel" required placeholder="+234"/></label>
+          </fieldset>
+          <fieldset>
+            <legend>Delivery address</legend>
+            <div className="form-split">
+              <label>First name<input required/></label>
+              <label>Last name<input required/></label>
+            </div>
+            <label>Address<input required placeholder="Street and house number"/></label>
+            <div className="form-split">
+              <label>City<input required defaultValue="Abuja"/></label>
+              <label>State<select required defaultValue="Abuja FCT"><option>Abuja FCT</option><option>Rivers</option><option>Oyo</option><option>Kano</option></select></label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <legend>Payment method</legend>
+            <div className="payment-note"><strong>Bank transfer only</strong><span>Transfer instructions and your exact order total will appear after you place your order.</span></div>
+          </fieldset>
+          <button className="btn btn-dark">Place order <ArrowUpRight/></button>
+        </form>
+
+        <aside className="checkout-items">
+          {lines.map(({product,qty})=><div className="checkout-item" key={product.id}>
+            <div className={`checkout-thumb sheet ${product.image}`}></div>
+            <p><strong>{product.name}</strong><span>Qty {qty}</span></p>
+            <b>{formatNaira(product.price*qty)}</b>
+          </div>)}
+          <div className="checkout-total"><span>Total</span><strong>{formatNaira(subtotal)}</strong></div>
+        </aside>
+      </div>}
+    </main>
+
+    {paymentOpen&&<div className="transfer-modal-backdrop" onMouseDown={event=>{if(event.target===event.currentTarget)setPaymentOpen(false)}}>
+      <section className="transfer-modal" role="dialog" aria-modal="true" aria-labelledby="transfer-title">
+        <button className="transfer-modal-close" type="button" onClick={()=>setPaymentOpen(false)} aria-label="Close payment instructions">×</button>
+        <p className="eyebrow">Bank transfer payment</p>
+        <h2 id="transfer-title">Please make your transfer</h2>
+        <p className="transfer-intro">Use the details below to complete your order. Your items will be processed after the transfer is verified.</p>
+        <div className="transfer-details">
+          <div><span>Account number</span><strong>{ACCOUNT_NUMBER}</strong></div>
+          <button type="button" className="copy-account" onClick={copyAccount}>{copied?'Copied ✓':'Copy number'}</button>
+          <div><span>Account name</span><strong>Osen' Luxe</strong></div>
+          <div><span>Amount to transfer</span><strong>{formatNaira(subtotal)}</strong></div>
+          <div><span>Payment reference</span><strong>{orderReference}</strong></div>
+        </div>
+        <div className="transfer-notice">
+          <strong>Before you continue</strong>
+          <p>Use <b>{orderReference}</b> as the transfer narration where possible. Please keep your receipt as proof of payment. Your order remains pending until payment is confirmed.</p>
+        </div>
+        <button type="button" className="btn btn-dark transfer-confirm" onClick={confirmTransfer}>I have made the transfer <ArrowUpRight/></button>
+        <button type="button" className="transfer-cancel" onClick={()=>setPaymentOpen(false)}>Go back to checkout</button>
+      </section>
+    </div>}
+  </>;
+}
