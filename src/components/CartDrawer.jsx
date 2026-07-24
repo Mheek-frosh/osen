@@ -2,8 +2,7 @@ import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { formatNaira } from '../data/products';
-import { BagIcon } from './Icons';
-
+import { BagIcon } from './Ico
 export default function CartDrawer({open,onClose}){
   const {lines,count,subtotal,setQuantity}=useCart();
   useEffect(()=>{
