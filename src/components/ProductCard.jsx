@@ -8,7 +8,9 @@ export default function ProductCard({product}){
     <div className={`product-image sheet ${product.image}`}>
       {product.badge&&<span className="tag">{product.badge}</span>}
       <Link className="product-hit" to={`/product/${product.id}`} aria-label={`View ${product.name}`}/>
-      <button className="quick-add" onClick={()=>addItem(product.id)}>Quick add</button>
+      <button className="quick-add" onClick={()=>addItem(product.id)} disabled={product.soldOut}>
+        {product.soldOut?'Sold out':'Quick add'}
+      </button>
     </div>
     <div className="product-info"><div><h3><Link to={`/product/${product.id}`}>{product.name}</Link></h3><p>{product.material}</p></div><strong>{formatNaira(product.price)}</strong></div>
   </article>;

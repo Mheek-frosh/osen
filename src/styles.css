@@ -84,3 +84,6 @@
   .category-grid-seven .category-card>span{padding-left:8px;padding-right:8px}
   .category-grid-seven .category-card strong{font-size:12px}
 }
+
+/* Sold-out products */
+.quick-add:disabled,.detail-add:disabled{background:#777;color:#fff;cursor:not-allowed;box-shadow:none;transform:none}

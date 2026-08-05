@@ -9,7 +9,7 @@ export function CartProvider({children}){
   const [toast,setToast]=useState('');
   useEffect(()=>localStorage.setItem('osen-cart',JSON.stringify(cart)),[cart]);
   useEffect(()=>{if(!toast)return;const id=setTimeout(()=>setToast(''),2300);return()=>clearTimeout(id)},[toast]);
-  const addItem=(id,qty=1)=>{setCart(current=>({...current,[id]:(current[id]||0)+qty}));setToast(`${findProduct(id)?.name||'Item'} added to your bag`)};
+  const addItem=(id,qty=1)=>{const product=findProduct(id);if(product?.soldOut){setToast(`${product.name} is sold out`);return}setCart(current=>({...current,[id]:(current[id]||0)+qty}));setToast(`${product?.name||'Item'} added to your bag`)};
   const setQuantity=(id,qty)=>setCart(current=>{const next={...current};if(qty<=0)delete next[id];else next[id]=qty;return next});
   const clearCart=()=>setCart({});
   const count=Object.values(cart).reduce((sum,qty)=>sum+qty,0);
