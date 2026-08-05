@@ -1,3 +1,7 @@
+// ============================================================
+// SHOP CATEGORIES
+// These control the category names shown around the website.
+// ============================================================
 export const categories = [
   {id:'ankara',label:'Africa Fabrics (Ankara)',shortLabel:'Ankara',image:'image-ank1',title:'Africa Fabrics',copy:'Expressive Ankara pieces grounded in colour, story, and everyday elegance.'},
   {id:'laces',label:'Laces',image:'image-lace',title:'Laces',copy:'Refined lace and occasion materials selected for memorable celebrations.'},
@@ -9,9 +13,22 @@ export const categories = [
   {id:'wrapper-materials',label:'Wrapper Materials',image:'image-wrapper-2',title:'Wrapper Materials',copy:'Vibrant wrapper fabrics selected for traditional styling, celebrations, and contemporary tailoring.'}
 ];
 
+// ============================================================
+// PRODUCTS
+// To change a price, edit only the number after `price:`.
+// Example: price:35000 is displayed on the website as ₦35,000.
+// Do not add commas or a currency symbol inside the number.
+// ============================================================
 export const products = [
+  // ----------------------------------------------------------
+  // AFRICA FABRICS (ANKARA)
+  // ----------------------------------------------------------
   {id:'adara-ankara-gown',name:'Adára Ankara Gown',category:'ankara',label:'Africa Fabrics (Ankara)',price:98000,material:'Premium African wax cotton',image:'image-ank1',badge:'New',description:'A flowing Ankara gown in warm cocoa, coral, and amber tones with a richly finished neckline.'},
   {id:'amethyst-ankara-gown',name:'Amethyst Ankara Gown',category:'ankara',label:'Africa Fabrics (Ankara)',price:92000,material:'Hand-finished Ankara cotton',image:'image-ank2',badge:'New',description:'A relaxed purple Ankara gown featuring geometric motifs and tactile patchwork accents.'},
+
+  // ----------------------------------------------------------
+  // LACES
+  // ----------------------------------------------------------
   {id:'champagne-gold-sequin-lace',name:'Champagne Gold Sequin Lace',category:'laces',label:'Laces',price:98000,material:'Cord lace & holographic sequins',image:'image-lace-product-1',badge:'New',description:'A luxurious champagne lace material with floral cordwork, a brilliant gold sequin ground, and coordinating head-tie fabric.'},
   {id:'olive-green-sequin-lace',name:'Olive Green Sequin Lace',category:'laces',label:'Laces',price:94000,material:'Cord lace & tonal sequins',image:'image-lace-product-2',badge:'New',description:'A rich olive-green lace with dense floral cordwork, tonal sequins, and a complementary gold head-tie.'},
   {id:'lilac-sparkle-lace',name:'Lilac Sparkle Lace',category:'laces',label:'Laces',price:92000,material:'Floral cord lace & sequins',image:'image-lace-product-3',badge:'New',description:'A graceful lilac lace material combining delicate floral medallions with a softly sparkling sequin base.'},
@@ -33,7 +50,15 @@ export const products = [
   {id:'ivory-gold-sequin-lace',name:'Ivory Gold Sequin Lace',category:'laces',label:'Laces',price:100000,material:'Cord lace & gold sequins',image:'image-lace-product-19',badge:'New',description:'An elegant ivory floral lace set against a radiant gold sequin base with coordinating head-tie fabric.'},
   {id:'turquoise-bronze-floral-lace',name:'Turquoise Bronze Floral Lace',category:'laces',label:'Laces',price:108000,material:'Embroidered floral lace',image:'image-lace-product-20',badge:'New',description:'A vibrant turquoise floral lace framed by bronze embroidery, delicate shimmer, and scalloped finishing.'},
   {id:'cobalt-blue-sequin-lace',name:'Cobalt Blue Sequin Lace',category:'laces',label:'Laces',price:96000,material:'Cord lace & tonal sequins',image:'image-lace-product-21',badge:'New',description:'A bold cobalt-blue lace with detailed floral cordwork, brilliant tonal sequins, and a gold head-tie.'},
+
+  // ----------------------------------------------------------
+  // MEN MATERIALS
+  // ----------------------------------------------------------
   {id:'noble-men-material',name:'Noble Brocade Material',category:'men-materials',label:'Men materials',price:75000,material:'Premium woven brocade',image:'image-menwears',badge:'New',description:'A distinguished woven material selected for refined kaftans and contemporary traditional tailoring.'},
+
+  // ----------------------------------------------------------
+  // WRAPPER MATERIALS
+  // ----------------------------------------------------------
   {id:'ayaba-neutral-wrapper',name:'Ayaba Neutral Wrapper Material',category:'wrapper-materials',label:'Wrapper Materials',price:48000,material:'Premium printed cotton',image:'image-wrapper-1',badge:'New',description:'A refined cocoa-and-black wrapper material with bold bow-inspired geometric motifs and fine linear detailing.'},
   {id:'ewa-magenta-wrapper',name:'Ewa Magenta Wrapper Material',category:'wrapper-materials',label:'Wrapper Materials',price:52000,material:'Premium printed cotton',image:'image-wrapper-2',badge:'New',description:'A vibrant magenta wrapper material patterned with rhythmic yellow, white, green, and black woven-style forms.'},
   {id:'igbo-green-wrapper',name:'Igbo Green Wrapper Material',category:'wrapper-materials',label:'Wrapper Materials',price:48000,material:'Premium printed cotton',image:'image-wrapper-3',badge:'New',description:'A striking green-and-black wrapper material with graphic repeating motifs and structured linework.'},
@@ -50,6 +75,10 @@ export const products = [
   {id:'ona-mono-wrapper',name:'Ona Monochrome Wrapper Material',category:'wrapper-materials',label:'Wrapper Materials',price:47000,material:'Soft printed cotton',image:'image-wrapper-14',badge:'New',description:'A graphic black-and-white wrapper material with interlocking linear and dotted motifs.'},
   {id:'dara-indigo-wrapper',name:'Dara Indigo Wrapper Material',category:'wrapper-materials',label:'Wrapper Materials',price:49000,material:'Soft printed cotton',image:'image-wrapper-15',badge:'New',description:'A rich black wrapper material accented with indigo diamonds, floral marks, and finely patterned borders.'},
   {id:'ileke-mono-wrapper',name:'Ileke Monochrome Wrapper Material',category:'wrapper-materials',label:'Wrapper Materials',price:49000,material:'Soft printed cotton',image:'image-wrapper-16',badge:'New',description:'A distinctive monochrome wrapper material composed of hand-drawn-style geometric and organic pattern panels.'},
+
+  // ----------------------------------------------------------
+  // SHOES
+  // ----------------------------------------------------------
   {id:'zuri-mule',name:'Zuri Heeled Shoe',category:'shoes',label:'Shoes',price:135000,material:'Leather & woven textile',image:'image-shoe',badge:'Limited',description:'An elegant open-toe heel with a woven Ankara inset and balanced architectural shape.'},
   {id:'dara-black-mule',name:'Dara Black Block-Heel Mule',category:'shoes',label:'Shoes',price:72000,material:'Smooth black leather',image:'image-shoes-1',badge:'New',description:'A sleek open-toe mule with a sculpted upper and comfortable architectural block heel.'},
   {id:'sola-gold-slide',name:'Sola Gold Slide',category:'shoes',label:'Shoes',price:58000,material:'Metallic gold leather',image:'image-shoes-2',badge:'New',description:'An effortless low-heel slide in luminous gold, finished with a clean wide strap.'},
@@ -64,9 +93,21 @@ export const products = [
   {id:'ife-monochrome-mule',name:'Ife Monochrome Platform Mule',category:'shoes',label:'Shoes',price:88000,material:'White leather & black wood-effect sole',image:'image-shoes-11',badge:'New',description:'A graphic black-and-white platform mule featuring statement gold hardware and a strong block heel.'},
   {id:'ruby-bow-flat',name:'Ruby Embellished Bow Flat',category:'shoes',label:'Shoes',price:68000,material:'Burgundy satin & beaded embellishment',image:'image-shoes-12',badge:'New',description:'A romantic burgundy flat finished with a sculptural bow and rich tonal beadwork.'},
   {id:'morayo-buckle-slide',name:'Morayo Buckle Slide',category:'shoes',label:'Shoes',price:60000,material:'Black leather & wood-effect sole',image:'image-shoes-13',badge:'New',description:'A relaxed black leather slide elevated by a bold buckle and warm wood-effect sole.'},
+
+  // ----------------------------------------------------------
+  // SLIPPERS
+  // ----------------------------------------------------------
   {id:'kemi-slipper',name:'Kémi Woven Slipper',category:'slippers',label:'Slippers',price:82000,material:'Nappa leather & jacquard',image:'image-slippers',badge:'New',description:'An easy statement slipper balancing soft nappa leather with an Osen woven textile panel.'},
+
+  // ----------------------------------------------------------
+  // HANDBAGS
+  // ----------------------------------------------------------
   {id:'iye-bag',name:'Iye Top Handle',category:'handbags',label:'Handbags',price:195000,material:'Oxblood pebbled leather',image:'image-bag',badge:'Signature',description:'A poised top-handle bag finished with a sculptural brushed-gold clasp and considered interior.'},
   {id:'naya-mini',name:'Naya Mini Handbag',category:'handbags',label:'Handbags',price:175000,material:'Burgundy calf leather',image:'image-bag',badge:'',description:'Our signature handbag scaled down for evenings, with a polished top handle and suede-lined interior.'},
+
+  // ----------------------------------------------------------
+  // JEWELLERY
+  // ----------------------------------------------------------
   {id:'ile-jewel',name:'Ilé Statement Jewel',category:'jewellery',label:'Jewellery',price:68000,material:'Woven textile & gold finish',image:'image-neck',badge:'Limited',description:'A jewel-like finishing piece crafted for celebrations with warm gold detailing.'},
   {id:'adunni-knot-set',name:'Adunni Knot Jewellery Set',category:'jewellery',label:'Jewellery',price:35000,material:'Gold-tone finish & crystal accents',image:'image-jewel-1',badge:'New',description:'A coordinated necklace, earrings, bracelet, and ring set finished with sculptural knot motifs and crystal accents.'},
   {id:'ayo-filigree-set',name:'Ayo Filigree Jewellery Set',category:'jewellery',label:'Jewellery',price:72000,material:'Gold-tone filigree & multicolour stones',image:'image-jewel-2',badge:'New',description:'An ornate circular jewellery set detailed with delicate filigree and vibrant multicolour stones.'},
@@ -82,5 +123,8 @@ export const products = [
   {id:'irawo-sunburst-set',name:'Irawo Sunburst Jewellery Set',category:'jewellery',label:'Jewellery',price:74000,material:'Gold-tone finish & multicolour stones',image:'image-jewel-12',badge:'New',description:'A striking pendant and earring set with emerald centres, colourful stones, and radiating gold details.'}
 ];
 
+// ============================================================
+// PRODUCT HELPERS — no prices need to be changed below here.
+// ============================================================
 export const formatNaira = value => `₦${value.toLocaleString('en-NG')}`;
 export const findProduct = id => products.find(product => product.id === id);
