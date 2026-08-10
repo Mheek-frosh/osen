@@ -40,6 +40,7 @@ export const productsQuery = `
     material,
     description,
     badge,
-    soldOut
+    soldOut,
+    sortOrder
   }
 `

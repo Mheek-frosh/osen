@@ -25,7 +25,12 @@ export function ProductProvider({children}) {
     sanityClient.fetch(productsQuery)
       .then(items => {
         if (!active) return
-        if (items.length) setProducts(items.map(normalizeProduct))
+        if (items.length) {
+          const normalizedProducts = items
+            .map(normalizeProduct)
+            .sort((a, b) => (a.sortOrder ?? -1) - (b.sortOrder ?? -1))
+          setProducts(normalizedProducts)
+        }
         setError('')
       })
       .catch(fetchError => {

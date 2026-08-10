@@ -49,6 +49,7 @@ export const productType = defineType({
     defineField({name: 'description', title: 'Description', type: 'text', hidden: true}),
     defineField({name: 'badge', title: 'Badge', type: 'string', hidden: true}),
     defineField({name: 'soldOut', title: 'Sold out', type: 'boolean', hidden: true}),
+    defineField({name: 'sortOrder', title: 'Display order', type: 'number', hidden: true}),
   ],
   orderings: [
     {title: 'Newest first', name: 'newestFirst', by: [{field: '_createdAt', direction: 'desc'}]},
