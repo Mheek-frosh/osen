@@ -11,7 +11,8 @@ export const sanityClient = isSanityConfigured
       projectId,
       dataset,
       apiVersion: '2026-08-10',
-      useCdn: true,
+      // Product edits should be visible as soon as the storefront refreshes.
+      useCdn: false,
       perspective: 'published',
     })
   : null

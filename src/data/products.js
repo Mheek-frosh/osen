@@ -13,6 +13,34 @@ export const categories = [
   {id:'wrapper-materials',label:'Wrapper Materials',image:'image-wrapper-2',title:'Wrapper Materials',copy:'Vibrant wrapper fabrics selected for traditional styling, celebrations, and contemporary tailoring.'}
 ];
 
+const categoryAliases = {
+  'africa-fabrics': 'ankara',
+  'africa-fabrics-ankara': 'ankara',
+  lace: 'laces',
+  'men-material': 'men-materials',
+  shoe: 'shoes',
+  slipper: 'slippers',
+  handbag: 'handbags',
+  bag: 'handbags',
+  bags: 'handbags',
+  jewelry: 'jewellery',
+  jewelery: 'jewellery',
+  wrapper: 'wrapper-materials',
+  wrappers: 'wrapper-materials',
+  'wrapper-material': 'wrapper-materials',
+};
+
+export function normalizeCategory(value) {
+  const slug = String(value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/&/g, 'and')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+
+  return categoryAliases[slug] || slug;
+}
+
 // ============================================================
 // PRODUCTS
 // To change a price, edit only the number after `price:`.
