@@ -5,5 +5,9 @@ const dataset = process.env.SANITY_STUDIO_DATASET || 'production'
 
 export default defineCliConfig({
   api: {projectId, dataset},
-  deployment: {autoUpdates: true},
+  studioHost: 'osen-luxe-glm7nutk',
+  deployment: {
+    appId: 't2g68w6x6v9kigweo7ws5jp9',
+    autoUpdates: true,
+  },
 })
