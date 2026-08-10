@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { ArrowUpRight } from '../components/Icons';
 import { useCart } from '../context/CartContext';
 import { formatNaira } from '../data/products';
+import ProductMedia from '../components/ProductMedia';
 
 const ACCOUNT_NUMBER='6674700463';
 const WHATSAPP_NUMBER='2347054885172';
@@ -121,7 +122,7 @@ export default function Checkout(){
 
         <aside className="checkout-items">
           {lines.map(({product,qty})=><div className="checkout-item" key={product.id}>
-            <div className={`checkout-thumb sheet ${product.image}`}></div>
+            <ProductMedia product={product} className="checkout-thumb" width={240} height={300}/>
             <p><strong>{product.name}</strong><span>Qty {qty}</span></p>
             <b>{formatNaira(product.price*qty)}</b>
           </div>)}

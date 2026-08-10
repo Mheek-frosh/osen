@@ -1,10 +1,12 @@
 import { Link } from 'react-router-dom';
-import { categories, products } from '../data/products';
+import { categories } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 import FeaturedCarousel from '../components/FeaturedCarousel';
 import { ArrowUpRight } from '../components/Icons';
 import HeroCarousel from '../components/HeroCarousel';
 
 export default function Home(){
+  const {products}=useProducts();
   const featuredProducts=categories
     .filter(category=>category.id!=='men-materials')
     .map(category=>products.find(product=>product.category===category.id&&!product.soldOut))

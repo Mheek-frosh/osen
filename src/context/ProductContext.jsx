@@ -1,0 +1,53 @@
+import {createContext, useContext, useEffect, useMemo, useState} from 'react'
+import {categories, products as localProducts} from '../data/products'
+import {isSanityConfigured, productsQuery, sanityClient} from '../lib/sanity'
+
+const ProductContext = createContext(null)
+const categoryLabels = Object.fromEntries(categories.map(category => [category.id, category.label]))
+
+const normalizeProduct = product => ({
+  ...product,
+  label: categoryLabels[product.category] || product.category || 'Products',
+  material: product.material || categoryLabels[product.category] || 'Osen\' Luxe',
+  description: product.description || `${product.name}, selected for the Osen' Luxe collection.`,
+  soldOut: Boolean(product.soldOut),
+})
+
+export function ProductProvider({children}) {
+  const [products, setProducts] = useState(localProducts)
+  const [loading, setLoading] = useState(isSanityConfigured)
+  const [error, setError] = useState('')
+
+  useEffect(() => {
+    if (!sanityClient) return undefined
+
+    let active = true
+    sanityClient.fetch(productsQuery)
+      .then(items => {
+        if (!active) return
+        if (items.length) setProducts(items.map(normalizeProduct))
+        setError('')
+      })
+      .catch(fetchError => {
+        if (!active) return
+        console.error('Unable to load Sanity products. Using the local catalog.', fetchError)
+        setError('The live catalog could not be refreshed.')
+      })
+      .finally(() => {
+        if (active) setLoading(false)
+      })
+
+    return () => { active = false }
+  }, [])
+
+  const value = useMemo(() => ({
+    products,
+    loading,
+    error,
+    findProduct: id => products.find(product => product.id === id),
+  }), [products, loading, error])
+
+  return <ProductContext.Provider value={value}>{children}</ProductContext.Provider>
+}
+
+export const useProducts = () => useContext(ProductContext)

@@ -9,9 +9,15 @@
   "scripts": {
     "dev": "vite --host 0.0.0.0",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "sanity:dev": "npm --prefix studio run dev",
+    "sanity:build": "npm --prefix studio run build",
+    "sanity:deploy": "npm --prefix studio run deploy",
+    "sanity:import": "node --env-file=.env.local scripts/import-products-to-sanity.mjs"
   },
   "dependencies": {
+    "@sanity/client": "^7.26.2",
+    "@sanity/image-url": "^2.1.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router-dom": "^7.6.3"

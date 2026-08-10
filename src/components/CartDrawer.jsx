@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
 import { formatNaira } from '../data/products';
 import { BagIcon } from './Icons';
+import ProductMedia from './ProductMedia';
 
 export default function CartDrawer({open,onClose}){
   const {lines,count,subtotal,setQuantity}=useCart();
@@ -53,9 +54,13 @@ export default function CartDrawer({open,onClose}){
       </div>:<>
         <div className="drawer-lines">
           {lines.map(({product,qty})=><article className="drawer-line" key={product.id}>
-            <Link
+            <ProductMedia
+              as={Link}
+              product={product}
               to={`/product/${product.id}`}
-              className={`drawer-thumb sheet ${product.image}`}
+              className="drawer-thumb"
+              width={240}
+              height={300}
               onClick={onClose}
               aria-label={`View ${product.name}`}
             />

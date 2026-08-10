@@ -1,13 +1,14 @@
 import { useEffect, useMemo, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { SearchIcon } from './Icons';
-import { products } from '../data/products';
+import { useProducts } from '../context/ProductContext';
 
 export default function SearchStrip({open,query,setQuery,onClose}){
+  const {products}=useProducts();
   const navigate=useNavigate();
   const inputRef=useRef(null);
   useEffect(()=>{if(open)inputRef.current?.focus()},[open]);
-  const matches=useMemo(()=>query.trim()?products.filter(p=>`${p.name} ${p.material} ${p.label}`.toLowerCase().includes(query.toLowerCase())).slice(0,4):[],[query]);
+  const matches=useMemo(()=>query.trim()?products.filter(p=>`${p.name} ${p.material} ${p.label}`.toLowerCase().includes(query.toLowerCase())).slice(0,4):[],[query,products]);
   const submit=event=>{event.preventDefault();navigate(`/search?q=${encodeURIComponent(query)}`);onClose()};
   return <div className={`nav-search ${open?'is-open':''}`} aria-hidden={!open}>
     <form onSubmit={submit} className="nav-search-form">
