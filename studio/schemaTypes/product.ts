@@ -1,5 +1,6 @@
 import {defineField, defineType} from 'sanity'
 
+// Keep category values stable because the storefront filters products by these slugs.
 const categories = [
   {title: 'Africa Fabrics (Ankara)', value: 'ankara'},
   {title: 'Laces', value: 'laces'},
@@ -16,6 +17,7 @@ export const productType = defineType({
   title: 'Products',
   type: 'document',
   fields: [
+    // These are the fields editors use to create and identify a product in Studio.
     defineField({
       name: 'name',
       title: 'Product name',
@@ -51,11 +53,13 @@ export const productType = defineType({
     defineField({name: 'soldOut', title: 'Sold out', type: 'boolean', hidden: true}),
     defineField({name: 'sortOrder', title: 'Display order', type: 'number', hidden: true}),
   ],
+  // These orderings support the most common catalog browsing views.
   orderings: [
     {title: 'Newest first', name: 'newestFirst', by: [{field: '_createdAt', direction: 'desc'}]},
     {title: 'Price: low to high', name: 'priceLow', by: [{field: 'price', direction: 'asc'}]},
   ],
   preview: {
+    // Show the same category label and Naira formatting editors see in the catalog.
     select: {title: 'name', category: 'category', price: 'price', media: 'image'},
     prepare({title, category, price, media}) {
       return {
